@@ -4,7 +4,7 @@ import SectionHeaders from "./SectionHeaders";
 export default function About() {
   return (
     <section className="text-center my-16">
-      <SectionHeaders subHeader={"nossa historia"} mainHeader={"Sobre nos"} />
+      <SectionHeaders subHeader={"nossa história"} mainHeader={"Sobre nós"} />
       <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

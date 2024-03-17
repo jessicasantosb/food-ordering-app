@@ -7,5 +7,6 @@
   },
   "files.associations": {
     "*.js": "javascriptreact"
-  }
+  },
+  "css.lint.unknownAtRules": "ignore"
 }

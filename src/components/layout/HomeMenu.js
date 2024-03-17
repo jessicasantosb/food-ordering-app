@@ -16,7 +16,7 @@ export default function HomeMenu() {
       </div>
 
       <div className="text-center pb-32">
-        <SectionHeaders subHeader={'Confira'} mainHeader={'Menu'} />
+        <SectionHeaders subHeader={'confira'} mainHeader={'Menu'} />
       </div>
 
       <div className="grid grid-cols-3 gap-4">
