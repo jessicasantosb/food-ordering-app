@@ -2,11 +2,11 @@
   "files.exclude": {
     "node_modules": true,
     ".gitignore": true,
-    // "package.json": true,
+    "package.json": true,
     "package-lock.json": true
   },
   "files.associations": {
     "*.js": "javascriptreact"
   },
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
 }
