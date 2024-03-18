@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-// import { redirect } from "next/navigation";
+import LoginWithGoogle from "../../components/LoginWithGoogle";
 
 export default function Register() {
   const [email, setEmail] = React.useState("");
@@ -15,7 +14,7 @@ export default function Register() {
 
     setCreatingUser(true);
     setError(false);
-    const {ok} = await fetch("/api/register", {
+    const { ok } = await fetch("/api/register", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {
@@ -25,7 +24,6 @@ export default function Register() {
 
     if (ok) {
       setCreatingUser(false);
-      // redirect('/login');
     } else {
       setError(true);
     }
@@ -42,7 +40,7 @@ export default function Register() {
       <form className="max-w-xs mx-auto" onSubmit={handleRegisterSubmit}>
         <input
           type="email"
-          placeholder="email"
+          placeholder="email@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={creatingUser}
@@ -61,12 +59,14 @@ export default function Register() {
         <div className="my-4 text-center text-gray-500">
           faça login com um servidor
         </div>
-        <button className="flex gap-4 justify-center">
-          <Image src={"/google.png"} alt={"google"} width={24} height={24} />
-          Login com o Google
-        </button>
+
+        <LoginWithGoogle />
+
         <div className="text-center my-4 text-gray-500 border-t pt-4">
-          Já tem uma conta?{" "} <Link className="underline" href={'/login'} >Login &raquo;</Link>
+          Já tem uma conta?{" "}
+          <Link className="underline" href={"/login"}>
+            Login &raquo;
+          </Link>
         </div>
       </form>
     </section>

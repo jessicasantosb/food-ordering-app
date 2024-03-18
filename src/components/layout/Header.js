@@ -19,16 +19,14 @@ export default function Header() {
         <Link href={""}>Contato</Link>
       </nav>
       <nav className="flex items-center gap-4 text-gray-400 font-semibold">
-        {status === "authenticated" && (
+        {status === "authenticated" ? (
           <button
             onClick={() => signOut()}
             className="bg-primary rounded-full text-white px-8 py-2"
           >
             Sair
           </button>
-        )}
-
-        {status === "unauthenticated" && (
+        ) : (
           <>
             <Link href={"/login"}>Login</Link>
             <Link

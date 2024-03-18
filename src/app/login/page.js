@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
-// import { redirect } from "next/navigation";
+import LoginWithGoogle from "../../components/LoginWithGoogle";
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
@@ -15,8 +14,13 @@ export default function Login() {
     event.preventDefault();
 
     setLoginInProgress(true);
+    setError(false);
 
-    await signIn('credentials', {email, password, callbackUrl: '/'});
+    try {
+      await signIn("credentials", { email, password, callbackUrl: "/" });
+    } catch (error) {
+      setError(true);
+    }
 
     setLoginInProgress(false);
   };
@@ -32,10 +36,10 @@ export default function Login() {
       <form className="max-w-xs mx-auto" onSubmit={handleLoginSubmit}>
         <input
           type="email"
-          placeholder="email"
+          placeholder="email@email.com"
           name="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           disabled={loginInProgress}
         />
         <input
@@ -43,7 +47,7 @@ export default function Login() {
           placeholder="senha"
           name="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           disabled={loginInProgress}
         />
         <button type="submit" disabled={loginInProgress}>
@@ -53,10 +57,9 @@ export default function Login() {
         <div className="my-4 text-center text-gray-500">
           faça login com um servidor
         </div>
-        <button className="flex gap-4 justify-center">
-          <Image src={"/google.png"} alt={"google"} width={24} height={24} />
-          Login com o Google
-        </button>
+
+        <LoginWithGoogle />
+
         <div className="text-center my-4 text-gray-500 border-t pt-4">
           Ainda não tem uma conta?{" "}
           <Link className="underline" href={"/register"}>
