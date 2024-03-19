@@ -31,7 +31,7 @@ export default function Register() {
 
   return (
     <section className="pt-16 h-screen">
-      <h1 className="text-center text-primary text-4xl my-4">Registrar</h1>
+      <h1 className="title">Registrar</h1>
       {error && (
         <p className="text-center text-red-800">
           Erro. Por favor, tente novamente mais tarde.
